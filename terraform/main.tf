@@ -5,9 +5,9 @@ terraform {
       version = "~> 5.0"
     }
     cloudflare = {
-      source  = "hashicorp/cloudflare"
-      version = "~> 4.0"
-    }
+  source  = "cloudflare/cloudflare"
+  version = "~> 4.0"
+}
   }
 }
 
