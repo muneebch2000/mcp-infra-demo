@@ -32,10 +32,11 @@ jobs:
 
       - name: Terraform Plan
         working-directory: terraform
-        run: terraform plan \
-          -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" \
-          -var="cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" \
-          -var="cloudflare_account_id=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+        run: terraform plan -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" -var="cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" -var="cloudflare_account_id=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+
+      - name: Terraform Apply
+        working-directory: terraform
+        run: terraform apply -auto-approve -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" -var="cloudflare_api_token=${{ secrets.CLOUDFLARE_API_TOKEN }}" -var="cloudflare_account_id=${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
 
       - name: Terraform Apply
         working-directory: terraform
